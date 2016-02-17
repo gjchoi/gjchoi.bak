@@ -31,3 +31,15 @@ Here comes some code.
 
 | First cell|Second cell|Third cell
 | First | Second | Third |
+
+~~~
+public static void main(String[] args){
+  try{
+  String x = new String();
+  }catch(Exception e){
+    e.printStackTrace();
+  }finally{
+    x = 1123;
+  }
+}
+~~~{: .language-java}
