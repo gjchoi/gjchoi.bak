@@ -24,3 +24,7 @@ _ _ _
 @[](a123)
 
 > This is a blockquote
+
+~~~~~~~~
+Here comes some code.
+~~~~~~~~
