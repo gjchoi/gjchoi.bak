@@ -1,6 +1,6 @@
 # Site settings
-title: Emerald | A simple Jekyll blog
-description: "A minimal blog template, build with Jekyll."
+title: IT 노트 | A simple Jekyll blog
+description: "IT blog, build with Jekyll."
 url: "http://gjchoi.github.io"
 author:
   name: "Choi G.J."
