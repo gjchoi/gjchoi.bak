@@ -28,3 +28,6 @@ _ _ _
 ~~~~~~~~
 Here comes some code.
 ~~~~~~~~
+
+| First cell|Second cell|Third cell
+| First | Second | Third |
