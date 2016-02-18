@@ -10,9 +10,6 @@ author:
 # Build settings
 baseurl: / # Change this to your relative path (ex: /blog/), or leave just a /
 markdown: kramdown
-kramdown:
-  input: GFM # Enable GitHub Flavored Markdown (fenced code blocks)
-highlighter : rouge
 source: .
 destination: ./_site
 permalink: /:title
