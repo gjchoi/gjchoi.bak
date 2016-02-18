@@ -11,6 +11,7 @@ github에서 githib에 html혹은 markdown .md 파일을 commit하는것만으�
 ##### Github repository
 ![repo_img](http://gjchoi.github.io/img/github-page/repo_img1.png)
 
+
 #### github page 설정하기
 
 이때 github에서 제공해주는 jekyll이라는 static 웹페이지 서비스를 이용하여 손쉽게 미리만들어진 템플릿을 사용하면 .md파일만 작성해서 github에 commit하는 것만으로 블로그 글을 올릴 수 있다.  
@@ -18,6 +19,7 @@ github에서 githib에 html혹은 markdown .md 파일을 commit하는것만으�
 
 ##### Github page setting 메뉴
 [setting그림]
+
 
 #### jekyll 이란?
 
@@ -28,6 +30,7 @@ jekyll은 ruby기반으로 만들어진 손쉽게 blog스타일의 정적 site�
 [jekyll 사이트](https://jekyllrb.com/)에서는 아래와 같이 소개하고 있다.
 
 > Jekyll is a simple, blog-aware, static site generator. It takes a template directory containing raw text files in various formats, runs it through a converter (like Markdown) and our Liquid renderer, and spits out a complete, ready-to-publish static website suitable for serving with your favorite web server. Jekyll also happens to be the engine behind GitHub Pages, which means you can use Jekyll to host your project’s page, blog, or website from GitHub’s servers for free.
+
 
 #### jekyll 사용하기
 앞선 설명과 같이 Github Page에 background에서는 jekyll이 돌고있다. Github repository에 page, css 등을 변경시키면 자동적으로 배포된다는 의미다. jekyll 사이트의 설명을 보면 console명령어로 이ruby를 설치하고 jekyll build하고 이것저것 복잡한 과정이 나오는데, 이는 local이나 자체서버에 기동하기 위함이지 github page기능을 이용한다면 단순히 jekyll구조로된 소스만 가져다가 repository에 옮겨두기만 하면된다.  
@@ -59,11 +62,12 @@ jekyll은 ruby기반으로 만들어진 손쉽게 blog스타일의 정적 site�
 
 필자의 경험상 메일이오는 경우는 크게 2가지다.
 
-#### Warnning 
+
+##### Warnning 
 - _config.yml에 markdown의 종류를 설정하는 곳이있는데 그곳이 `'kramdown'`이 아닌 경우 발생
 현재 github에서는 markdown을 `'kramdown'`만 지원하는데 예전에 만들어진 theme에는 `'redcarpet'` 같은 걸로 설정되어있는 경우가 있다. 기능상 문제는없지만 warnning 메일이 계속온다는 불편함이있다..
 
-#### Build fail
+##### Build fail
 - jekyll은 markdown파일을 html로 변환해주고 css를 입혀 보여주는 기능이 주이므로 주로 css를 수정하다가 잘못된 경우에 발생한다. 구체적인 메시지가 제공되진 않아서 알아서 잘 추적해야한다.....
 
 
