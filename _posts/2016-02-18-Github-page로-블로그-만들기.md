@@ -18,7 +18,7 @@ github에서 githib에 html혹은 markdown .md 파일을 commit하는것만으�
 계정 repository에 setting 메뉴에 들어가보면 automatic page generator와 html or jekyll 사용을 고를 수 있는 메뉴가 나오는데 자동생성하면 github markdown을 사용하여 내용물을 만들고 템플릿도 바로 선택해서 사용 가능하여 편리하지만 메인페이지에 국한되고 블로그처럼 기능을 이용하기에는 제약이 따르므로 jekyll기능을 사용하기로하자.
 
 ##### Github page setting 메뉴
-[setting그림]
+![setting그림](http://gjchoi.github.io/img/github-page/setting_img1.png)
 
 
 #### jekyll 이란?
@@ -38,24 +38,31 @@ jekyll은 ruby기반으로 만들어진 손쉽게 blog스타일의 정적 site�
 [Jekyll,Git 을 몰라도 무료 Github Pages 즐기기](http://ilmol.com/2015/01/Jekyll,Git%20%EC%9D%84%20%EB%AA%B0%EB%9D%BC%EB%8F%84%20%EB%AC%B4%EB%A3%8C%20Github%20Pages%20%EC%A6%90%EA%B8%B0%EA%B8%B0.html)
 
 #### jekyll theme 마켓 사용하여 배포해보기
+
+##### jekyll themes
+![마켓플레이스그림](http://gjchoi.github.io/img/github-page/theme_market_img1.png)
+
 사실 jekyll theme를 모아놓은 마켓플레이스가 존재한다. 이 싸이트에 들어가서 맘에드는 theme 눈으로 보고 골라 사용할 수 있어서 너무 유용하다!  
 [jekyll theme 사이트](http://jekyllthemes.org/)
 
-##### jekyll themes
-[마켓플레이스그림]
+##### jekyll theme 선택
+![테마선택](http://gjchoi.github.io/img/github-page/theme_market_img2.png)
+
 
 그 중에 마음에 드는 theme를 선택했다면 Homepage버튼을 선택해서 fork를 하는 방법과 Download를 눌러 나온 데이터를 github에 commit하는 방법 두가지가 있는데 필자는 그중에 2번째 방법으로 선택했다. 구체적으로 설명하면 다음과 같다.
 
 - 앞서 생성한 본인의 github의 repository 아까 얘기했던 {계정이름}.github.io의 repository 주소로 git clone해온다.
 
 - jekyll구조의 theme를 다운받아서 git clone한 디렉토리에 압축해제한다.
+
 - 해당 디렉토리내의 모든 파일을 git add하고 commit하고 push한다.  
 (혹시 git사용법이 익숙하지 않은 사람이라면 fork해서 복사해오는 방법을 추천한다. 필자는..뭔가 남에꺼를 훔쳐오는 것 같아서 download해서 새로 올리는 방식을 선택했다.)
 
 - github에 올린 후에(기왕이면 올리기전이 좋음) jekyll의 주요 설정파일인 _config.yml이라는 파일이 존재한다. theme 템플릿을 사용한 것이므로 나만의 blog를 만들기 위해서는 해당파일에 내용물을 내 정보로 바꿔줘야 한다. 주로 블로그 title, 이름, email, sns 주소, 블로그 main site path 등일 것이다.
 
 ##### jekyll _config.yml
-[설정정보 변경 그림]
+![설정정보 변경 그림](http://gjchoi.github.io/img/github-page/jekyll_conf_img1.png)
+
 
 이정도만 해주면 싸이트에 생성은 어느정도 완성된 것이다. 최초 배포이므로 시간이 좀 소요되는데 배포가 완료되었다면 http://{계정이름}.github.io로 접근하면 아까 선택했던 theme로 블로그가 완성된 모습을 볼 수 있다.  
 **!주의 : 만약 시간이 30분도 넘게 흘렀는데 아무런 반응이없다면 github가입시 사용한 email에 가서 메일이 와있는지 확인해봐야 한다. 왜냐하면 github page의 jekyll이 배포에 실패하였거나 warning사항이 있을때 메일로 메시지를 보내주기 때문이다.**
@@ -87,7 +94,7 @@ jakyll 디렉토리 구조를 보면 보통 아래와 같은 디렉토리들을 
 jekyll페이지는 _posts에 .md파일을 만들어 넣는 것만으로 페이지만들기는 끝이다. 대신 jekyll의 markdown은 `'kramdown'`을 사용하므로 `'kramdown'` 문법에 맞추어 작성해야 한다. `'kramdown'`에 대한 자세한 사용법은 다음 posting에서 다루기로 하자.
 
 ##### .md파일 샘플사진
-[.md파일 샘플사진]
+![.md파일 샘플사진](http://gjchoi.github.io/img/github-page/md_sample_img1.png)
 
 ~~~
 ---
