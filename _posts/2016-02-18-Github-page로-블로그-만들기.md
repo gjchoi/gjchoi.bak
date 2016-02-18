@@ -24,7 +24,7 @@ github에서 githib에 html혹은 markdown .md 파일을 commit하는것만으�
 #### jekyll 이란?
 
 jekyll은 ruby기반으로 만들어진 손쉽게 blog스타일의 정적 site를 생성해주는 도구로서
-사용자들은 markerdown이나 text기반의 내용만 만들어 업로드하는 정도로 블로그를 운영 할 수 있도록 해준다. <u>특히 GitHub Page에 engine으로 사용되어 github website로서 서비스 할 수 있게 해준다.</u> **바로 이 기능을 사용하여 블로그를 구성할 것이다!**
+사용자들은 markerdown이나 text기반의 내용만 만들어 업로드하는 정도로 블로그를 운영 할 수 있도록 해준다. <u>특히 GitHub Page에 engine으로 사용되어 github website로서 서비스 할 수 있게 해준다.</u> **바로 이 기능을 사용하여 블로그를 구성할 것이다!**  
 ※ 참고로 jekyll은 스펠링이 이상하지만 우리가 잘아는 지킬앤 하이드에 지킬이다
 
 [jekyll 사이트](https://jekyllrb.com/)에서는 아래와 같이 소개하고 있다.
@@ -81,7 +81,7 @@ jekyll은 ruby기반으로 만들어진 손쉽게 blog스타일의 정적 site�
 #### jekyll 디렉토리 구조
 jakyll 디렉토리 구조를 보면 보통 아래와 같은 디렉토리들을 가지고 있다.
 
-##### _includes 
+##### _includes
 : footer, header 등 html flagment들
 
 ##### _layout
