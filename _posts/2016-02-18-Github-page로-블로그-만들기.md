@@ -83,14 +83,19 @@ jakyll 디렉토리 구조를 보면 보통 아래와 같은 디렉토리들을 
 
 ##### _includes 
 : footer, header 등 html flagment들
+
 ##### _layout
 : page생성시 페이지 앞부분에 선언하여 선택하는 layout (jsp의 tile같은 느낌)
+
 ##### _posts
 : markdown(.md) 등 블로그 글들이 저장되는 디렉토리
+
 ##### _sass
 : css모음 (scss)
 
+
 #### jekyll 페이지 만들어보기
+
 jekyll페이지는 _posts에 .md파일을 만들어 넣는 것만으로 페이지만들기는 끝이다. 대신 jekyll의 markdown은 `'kramdown'`을 사용하므로 `'kramdown'` 문법에 맞추어 작성해야 한다. `'kramdown'`에 대한 자세한 사용법은 다음 posting에서 다루기로 하자.
 
 ##### .md파일 샘플사진
