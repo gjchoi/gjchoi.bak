@@ -1,9 +1,10 @@
-Github page로 블로그 호스팅하기
-====================
+Github page로 블로그 호스팅
+===============
 
 github에서 githib에 html혹은 markdown .md 파일을 commit하는것만으로 본 블로그처럼 웹페이지를 별도의 서버와 도메인을 갖고 있지 않아도 사용 할 수 있게 해준다.
 
-#### Github 가입하기
+Github 가입하기
+---------------
 
 제일먼저 github에 계정을 가지고 있어야 한다. [http://www.github.com](http://www.github.com)에서 unique한 id를 선택하고 email인증통해서 가입완료한다.  
 가입을 완료하면 repository를 만들면 내 git 저장소를 사용할 수 있게되는데 향후 jekyll기능을 사용위해 repository이름은 {계정이름}.github.io로 생성한다.(계정repository 생성) 그래야 Context path없이 저 이름 규칙대로 url을 사용 할 수 있다.  
