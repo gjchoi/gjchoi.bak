@@ -3,6 +3,7 @@ Github page로 블로그 호스팅
 
 github에서 githib에 html혹은 markdown .md 파일을 commit하는것만으로 본 블로그처럼 웹페이지를 별도의 서버와 도메인을 갖고 있지 않아도 사용 할 수 있게 해준다.
 
+
 Github 가입하기
 ---------------
 
@@ -52,8 +53,7 @@ jekyll theme 마켓 사용하여 배포해보기
 사실 jekyll theme를 모아놓은 마켓플레이스가 존재한다. 이 싸이트에 들어가서 맘에드는 theme 눈으로 보고 골라 사용할 수 있어서 너무 유용하다!  
 [jekyll theme 사이트](http://jekyllthemes.org/)
 
-jekyll theme 선택
----------------
+#####jekyll theme 선택
 ![테마선택](http://gjchoi.github.io/img/github-page/theme_market_img2.png)
 
 
