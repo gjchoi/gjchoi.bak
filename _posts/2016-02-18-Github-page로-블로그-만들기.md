@@ -2,7 +2,7 @@ Github page로 블로그 호스팅
 ===============
 
 Github에서 Githib에 html혹은 markdown .md 파일을 commit하는것만으로 본 블로그처럼 웹페이지를 별도의 서버와 도메인을 갖고 있지 않아도 사용 할 수 있게 해준다.
-  
+
 
 Github 가입하기
 ---------------
