@@ -1,5 +1,10 @@
 /*- Custom style -*/
 // -- Put custom style under this point -- //
 
+.content h1,h2{
+    margin-bottom: 16px;
+    border-bottom: 1px solid #eee;
+}
+
 @import "highlights";
 @import "svg-icons";
