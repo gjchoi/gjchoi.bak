@@ -8,8 +8,8 @@ Github 가입하기
 ---------------
 
 제일먼저 Githib에 계정을 가지고 있어야 한다. [http://www.github.com](http://www.github.com)에서 유니크한 ID를 선택하고 메일인증통해서 가입완료한다.  
-가입을 완료하면 repository를 만들면 내 git 저장소를 사용할 수 있게되는데 향후 jekyll기능을 사용위해 repository이름은 {계정이름}.github.io로 생성한다.(계정repository 생성) 그래야 Context path없이 저 이름 규칙대로 url을 사용 할 수 있다.  
-(만약 저거 외에 다른 이름을 주면 project url이라고해서 http://{계정이름}.github.io/{repsitory이름} 으로 사용할 수 있지만 github에 내장된 page서비스인 jekyll 기능을 사용에 제약이있다)
+가입을 완료하면 repository를 만들면 내 git 저장소를 사용할 수 있게되는데 향후 jekyll기능을 사용위해 repository이름은 *{계정이름}.github.io*로 생성한다.(계정repository 생성) 그래야 Context path없이 저 이름 규칙대로 url을 사용 할 수 있다.  
+(만약 저거 외에 다른 이름을 주면 project url이라고해서 *http://{계정이름}.github.io/{repsitory이름}* 으로 사용할 수 있지만 github에 내장된 page서비스인 jekyll 기능을 사용에 제약이있다)
 
 #### Github repository
 ![repo_img](http://gjchoi.github.io/img/github-page/repo_img1.png)
@@ -30,7 +30,7 @@ Jekyll 이란?
 
 Jekyll은 ruby기반으로 만들어진 손쉽게 blog스타일의 정적 site를 생성해주는 도구로서
 사용자들은 markerdown이나 text기반의 내용만 만들어 업로드하는 정도로 블로그를 운영 할 수 있도록 해준다. <u>특히 GitHub Page에 engine으로 사용되어 github website로서 서비스 할 수 있게 해준다.</u> **바로 이 기능을 사용하여 블로그를 구성할 것이다!**  
-※ 참고로 jekyll은 스펠링이 이상하지만 우리가 잘아는 지킬앤 하이드에 지킬이다
+*※ 참고로 jekyll은 스펠링이 이상하지만 우리가 잘아는 지킬앤 하이드에 지킬이다*
 
 [Jekyll 사이트](https://jekyllrb.com/)에서는 아래와 같이 소개하고 있다.
 
@@ -73,7 +73,8 @@ Jekyll theme 마켓 사용하여 배포해보기
 ![설정정보 변경 그림](http://gjchoi.github.io/img/github-page/jekyll_conf_img1.png)
 
 
-이정도만 해주면 싸이트에 생성은 어느정도 완성된 것이다. 최초 배포이므로 시간이 좀 소요되는데 배포가 완료되었다면 http://{계정이름}.github.io로 접근하면 아까 선택했던 theme로 블로그가 완성된 모습을 볼 수 있다.  
+이정도만 해주면 싸이트에 생성은 어느정도 완성된 것이다. 최초 배포이므로 시간이 좀 소요되는데 배포가 완료되었다면 *http://{계정이름}.github.io*로 접근하면 아까 선택했던 theme로 블로그가 완성된 모습을 볼 수 있다.  
+
 **!주의 : 만약 시간이 30분도 넘게 흘렀는데 아무런 반응이없다면 github가입시 사용한 email에 가서 메일이 와있는지 확인해봐야 한다. 왜냐하면 github page의 jekyll이 배포에 실패하였거나 warning사항이 있을때 메일로 메시지를 보내주기 때문이다.**
 
 필자의 경험상 메일이오는 경우는 크게 2가지다.
@@ -130,7 +131,7 @@ page를 변경하고 이상이없다면 수초내에 바로 배포/반영된다.
 페이지 디자인 수정하기
 -----------------------
 
-jekyll theme를 다운 받아 사용했다면 이미 만들어진 css가 적용되어있을 것이다. `kramdown`을 사용하면 html태그로 전환해주는 것 뿐이지 해당 html 엘리먼트에 대한 디자인은 css가 담당하므로 css를 수정해서 디자인을 customizing 할 수 있다. css는 _sass라는 디렉토리에 모여있는데 이 디렉토리내에 css에 필요요소를 추가하던가 수정하면된다.
+Jekyll theme를 다운 받아 사용했다면 이미 만들어진 css가 적용되어있을 것이다. `kramdown`을 사용하면 html태그로 전환해주는 것 뿐이지 해당 html 엘리먼트에 대한 디자인은 css가 담당하므로 css를 수정해서 디자인을 customizing 할 수 있다. css는 _sass라는 디렉토리에 모여있는데 이 디렉토리내에 css에 필요요소를 추가하던가 수정하면된다.
 필자가 사용한 theme에는 code block에 대한 background 디자인을 변경하고자 다른데서 _highlights.scss파일을 가져와서 적용했다. css를 일일이 수정하는 일은 전문적으로 하는 사람이 아닌이상 시간을 많이 잡아먹는 일이다. 처음부터 꼼꼼히 살펴보고 맞는 jekyll theme를 마켓에서 다운 받아 사용하는게 중요한 것 같다.
 
   
