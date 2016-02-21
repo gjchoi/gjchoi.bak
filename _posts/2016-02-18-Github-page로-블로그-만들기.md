@@ -1,6 +1,7 @@
 ---
-layout: page
+layout: post
 title: Github page로 블로그 호스팅
+category : env
 ---
 
 
