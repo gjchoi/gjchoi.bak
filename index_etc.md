@@ -7,6 +7,7 @@ title: About IT 노트
 
 <!-- Posts -->
 <ul id="posts">
+     <p>{{ page.category }}</p>
 
      {% for post in paginator.posts %}
           <p>{{post.category == "env"}}</p>
