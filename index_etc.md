@@ -3,8 +3,6 @@ layout: default
 title: About IT 노트
 ---
 
-### 기타 자료실
-
 <!-- Posts -->
 <ul id="posts">
      <p>{{ page.category }}</p>
