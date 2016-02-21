@@ -6,7 +6,7 @@ title : asdf
 <ul id="posts">
      <p>{{ page.title }}</p>
 
-     {% for post in paginator.posts %}
+     {% for post in site.posts %}
           <p>{{post.category == "env"}}</p>
 	  <li class="post">
 	  	<h3><a href="{% if site.baseurl == "/" %}{{ post.url }}{% else %}{{ post.url | prepend: site.baseurl }}{% endif %}">{{ post.title }}</a></h3>
