@@ -1,143 +1,651 @@
-Github page로 블로그 호스팅
+
+{::options parse_block_html="true" /}
+
+
+마크다운 중 하나인 Kramdown 사용하기
+=======================
+
+마크다운은 간단한  자체 표기법을 사용해 텍스트를 작성하고 쉽게 다른 HTML 등으로 생성하게 해주는 방법이다.
+.md .markdown이라는 확장자를 가지고있는 파일들이 바로 그것이다.
+마크다운은 존 그루버와 아론 스워츠가 메일의 글쓰기 형식에서 영감을 받아 만든 python으로 만든 html변환기를 올림으로써 알려지게 되었습니다.
+약 10여년도 전에 만들어졌지만 별다른 문법 발전없이 표준화되지 못한 모습이다.
+하지만 그 편리성 때문에 많은 블로그나 텍스트편집기 등에서 채택되어 사용되고있지만 표준화되어있지 못해서 PHP Markdown Extra, Multimarkdown, Github Flavored Markdown(GFM) 등으로 파편화가 진행되고 있다.
+
+Github page를 jekyll기반으로 생성하면서 고려할 마크다운은 `kramdown`이라는 종류다. jekyll자체는 마크다운 플러그인으로 다양한 마크다운 종류를 선택하여 사용 할 수 있지만 Github page에서는 작년 5월부터 `kramdown`만 지원하는 것으로 하였다. 기존에 사용되던 `redcarpet`방식은 더이상 지원하지 않음
+때문에 블로그 활동을 원활하기 위해 개인적으로 `kramdown` 문법을 정리해 보기로 하였다.
+
+Kramdown 문법
+------------------------
+
+### 헤더1 (Headers)
+
+#### 설명
+타이틀 헤더 속성을 준다.  
+`=======`는 H1  
+`-------`는 H2  
+ 붙여주고 한줄을 띄어주는 것이 중요!
+
+#### Code
+~~~
+이것은 헤더
 ===============
 
-Github에서 Githib에 html혹은 markdown .md 파일을 commit하는것만으로 본 블로그처럼 웹페이지를 별도의 서버와 도메인을 갖고 있지 않아도 사용 할 수 있게 해준다.
-
-
-Github 가입하기
+이것은 서브 헤더
 ---------------
 
-제일먼저 Githib에 계정을 가지고 있어야 한다. [http://www.github.com](http://www.github.com)에서 유니크한 ID를 선택하고 메일인증통해서 가입완료한다.  
-가입을 완료하면 repository를 만들면 내 git 저장소를 사용할 수 있게되는데 향후 jekyll기능을 사용위해 repository이름은 *{계정이름}.github.io*로 생성한다.(계정repository 생성) 그래야 Context path없이 저 이름 규칙대로 url을 사용 할 수 있다.  
-(만약 저거 외에 다른 이름을 주면 project url이라고해서 *http://{계정이름}.github.io/{repsitory이름}* 으로 사용할 수 있지만 github에 내장된 page서비스인 jekyll 기능을 사용에 제약이있다)
-
-#### Github repository
-![repo_img](http://gjchoi.github.io/img/github-page/repo_img1.png)
-
-
-Github page 설정하기
----------------
-
-이때 github에서 제공해주는 jekyll이라는 static 웹페이지 서비스를 이용하여 손쉽게 미리만들어진 템플릿을 사용하면 .md파일만 작성해서 github에 commit하는 것만으로 블로그 글을 올릴 수 있다.  
-계정 repository에 setting 메뉴에 들어가보면 automatic page generator와 html or jekyll 사용을 고를 수 있는 메뉴가 나오는데 자동생성하면 github markdown을 사용하여 내용물을 만들고 템플릿도 바로 선택해서 사용 가능하여 편리하지만 메인페이지에 국한되고 블로그처럼 기능을 이용하기에는 제약이 따르므로 jekyll기능을 사용하기로하자.
-
-#### Github page setting 메뉴
-![setting그림](http://gjchoi.github.io/img/github-page/setting_img1.png)
-
-
-Jekyll 이란?
----------------
-
-Jekyll은 ruby기반으로 만들어진 손쉽게 blog스타일의 정적 site를 생성해주는 도구로서
-사용자들은 markerdown이나 text기반의 내용만 만들어 업로드하는 정도로 블로그를 운영 할 수 있도록 해준다. <u>특히 GitHub Page에 engine으로 사용되어 github website로서 서비스 할 수 있게 해준다.</u> **바로 이 기능을 사용하여 블로그를 구성할 것이다!**  
-*※ 참고로 jekyll은 스펠링이 이상하지만 우리가 잘아는 지킬앤 하이드에 지킬이다*
-
-[Jekyll 사이트](https://jekyllrb.com/)에서는 아래와 같이 소개하고 있다.
-
-> Jekyll is a simple, blog-aware, static site generator. It takes a template directory containing raw text files in various formats, runs it through a converter (like Markdown) and our Liquid renderer, and spits out a complete, ready-to-publish static website suitable for serving with your favorite web server. Jekyll also happens to be the engine behind GitHub Pages, which means you can use Jekyll to host your project’s page, blog, or website from GitHub’s servers for free.
-
-
-Jekyll 사용하기
----------------
-
-앞선 설명과 같이 Github Page에 background에서는 jekyll이 돌고있다. Github repository에 page, css 등을 변경시키면 자동적으로 배포된다는 의미다. jekyll 사이트의 설명을 보면 console명령어로 ruby를 설치하고 jekyll build하고 이것저것 복잡한 과정이 나오는데, 이는 local이나 자체서버에 기동하기 위함이지 github page기능을 이용한다면 단순히 jekyll구조로된 소스만 가져다가 repository에 옮겨두기만 하면된다.  
-이미 구축된 page의 github소스를 fork하여 사용하는 방법은 아래 ilmol님이 포스팅해놓은 글에 자세히 설명되어있다. (필자도 처음에는 이글을 보고 따라하며 파악할 수 있었음)  
-[Jekyll,Git 을 몰라도 무료 Github Pages 즐기기](http://ilmol.com/2015/01/Jekyll,Git%20%EC%9D%84%20%EB%AA%B0%EB%9D%BC%EB%8F%84%20%EB%AC%B4%EB%A3%8C%20Github%20Pages%20%EC%A6%90%EA%B8%B0%EA%B8%B0.html)
-
-Jekyll theme 마켓 사용하여 배포해보기
----------------
-
-##### Jekyll themes
-![마켓플레이스그림](http://gjchoi.github.io/img/github-page/theme_market_img1.png)
-
-사실 Jekyll theme를 모아놓은 마켓플레이스가 존재한다. 이 싸이트에 들어가서 맘에드는 theme 눈으로 보고 골라 사용할 수 있어서 너무 유용하다!  
-[Jekyll theme 사이트](http://jekyllthemes.org/)
-
-
-##### Jekyll theme 선택
-![테마선택](http://gjchoi.github.io/img/github-page/theme_market_img2.png)
-
-
-그 중에 마음에 드는 theme를 선택했다면 Homepage버튼을 선택해서 fork를 하는 방법과 Download를 눌러 나온 데이터를 github에 commit하는 방법 두가지가 있는데 필자는 그중에 2번째 방법으로 선택했다. 구체적으로 설명하면 다음과 같다.
-
-- 앞서 생성한 본인의 github의 repository 아까 얘기했던 {계정이름}.github.io의 repository 주소로 git clone해온다.
-
-- Jekyll구조의 theme를 다운받아서 git clone한 디렉토리에 압축해제한다.
-
-- 해당 디렉토리내의 모든 파일을 git add하고 commit하고 push한다.  
-(혹시 git사용법이 익숙하지 않은 사람이라면 fork해서 복사해오는 방법을 추천한다. 필자는..뭔가 남에꺼를 훔쳐오는 것 같아서 download해서 새로 올리는 방식을 선택했다.)
-
-- Github에 올린 후에(기왕이면 올리기전이 좋음) jekyll의 주요 설정파일인 _config.yml이라는 파일이 존재한다. theme 템플릿을 사용한 것이므로 나만의 blog를 만들기 위해서는 해당파일에 내용물을 내 정보로 바꿔줘야 한다. 주로 블로그 title, 이름, email, sns 주소, 블로그 main site path 등일 것이다.
-
-#### Jekyll _config.yml
-![설정정보 변경 그림](http://gjchoi.github.io/img/github-page/jekyll_conf_img1.png)
-
-
-이정도만 해주면 싸이트에 생성은 어느정도 완성된 것이다. 최초 배포이므로 시간이 좀 소요되는데 배포가 완료되었다면 *http://{계정이름}.github.io*로 접근하면 아까 선택했던 theme로 블로그가 완성된 모습을 볼 수 있다.  
-
-**!주의 : 만약 시간이 30분도 넘게 흘렀는데 아무런 반응이없다면 github가입시 사용한 email에 가서 메일이 와있는지 확인해봐야 한다. 왜냐하면 github page의 jekyll이 배포에 실패하였거나 warning사항이 있을때 메일로 메시지를 보내주기 때문이다.**
-
-필자의 경험상 메일이오는 경우는 크게 2가지다.
-
-
-#### Warnning 
-- _config.yml에 markdown의 종류를 설정하는 곳이있는데 그곳이 `'kramdown'`이 아닌 경우 발생
-현재 github에서는 markdown을 `'kramdown'`만 지원하는데 예전에 만들어진 theme에는 `'redcarpet'` 같은 걸로 설정되어있는 경우가 있다. 기능상 문제는없지만 warnning 메일이 계속온다는 불편함이있다..
-
-#### Build fail
-- jekyll은 markdown파일을 html로 변환해주고 css를 입혀 보여주는 기능이 주이므로 주로 css를 수정하다가 잘못된 경우에 발생한다. 구체적인 메시지가 제공되진 않아서 알아서 잘 추적해야한다.....
-
-
-Jekyll 디렉토리 구조
----------------
-
-Jakyll 디렉토리 구조를 보면 보통 아래와 같은 디렉토리들을 가지고 있다.
-
-
-#### _includes
-: footer, header 등 html flagment들
-
-#### _layout
-: page생성시 페이지 앞부분에 선언하여 선택하는 layout (jsp의 tile같은 느낌)
-
-#### _posts
-: markdown(.md) 등 블로그 글들이 저장되는 디렉토리
-
-#### _sass
-: css모음 (scss)
-
-
-Jekyll 페이지 만들어보기
----------------
-
-Jekyll페이지는 _posts에 .md파일을 만들어 넣는 것만으로 페이지만들기는 끝이다. 대신 jekyll의 markdown은 `'kramdown'`을 사용하므로 `'kramdown'` 문법에 맞추어 작성해야 한다. `'kramdown'`에 대한 자세한 사용법은 다음 posting에서 다루기로 하자.
-
-#### .md파일 샘플사진
-![.md파일 샘플사진](http://gjchoi.github.io/img/github-page/md_sample_img1.png)
-
-~~~
----
-layout: post
-title: You're up and running!
----
+본문...
 ~~~
 
-윗부분에 나와있는 layout은 디렉토리에 있던 것중 1가지로 선택해야 함 (없으면 default)
-title은 layout내에 변수 매핑되어 사용된다.  
+#### View
 
-page를 변경하고 이상이없다면 수초내에 바로 배포/반영된다. 바로 반영되지 않는 경우도 있으니 조금만 더 기다려보고 안되면 메시지가 왔는지 메일을 뒤져보자.
+<div class="view">
+이것은 헤더
+===============
+
+이것은 서브 헤더
+---------------
+
+본문...
+</div>
+* * *
 
 
-페이지 디자인 수정하기
------------------------
+### 헤더2 (Headers)
 
-Jekyll theme를 다운 받아 사용했다면 이미 만들어진 css가 적용되어있을 것이다. `kramdown`을 사용하면 html태그로 전환해주는 것 뿐이지 해당 html 엘리먼트에 대한 디자인은 css가 담당하므로 css를 수정해서 디자인을 customizing 할 수 있다. css는 _sass라는 디렉토리에 모여있는데 이 디렉토리내에 css에 필요요소를 추가하던가 수정하면된다.
-필자가 사용한 theme에는 code block에 대한 background 디자인을 변경하고자 다른데서 _highlights.scss파일을 가져와서 적용했다. css를 일일이 수정하는 일은 전문적으로 하는 사람이 아닌이상 시간을 많이 잡아먹는 일이다. 처음부터 꼼꼼히 살펴보고 맞는 jekyll theme를 마켓에서 다운 받아 사용하는게 중요한 것 같다.
+#### 설명
+H1, H2, H3, H4, H5, H6 문장의 속성을 준다.
+`#`를 갯수에 맞게 붙여주고 한줄을 띄어주는 것이 중요!
 
-  
-모바일에서 블로깅하기
---------------------
-앞서 언급되었듯이 github의 _posts디렉토리내에 .md파일을 위치시키는 것만으로 글을 업로드 할 수 있으므로 필자는 출퇴근간 폰으로 글을 업로드하기 위해 모바일용 git과 markdown을 작성할 수 있는 텍스트 에디터를 사용하였다. markdown을 작성하고 바로 github에 share할 수 있는 앱이 있으면 좋으련만… 아직 찾지 못했다. 때문에 필자는 sgit프로그램과 해당 sgit이 clone한 로컬레파지토리에 직접 데이터를 수정할 수있는 에디터를 사용하여 글을 생성/수정하고 바로 git hub에 올리는 식으로 작업 중이다.
-(사실 모바일 브라우저로 github에 접근해서 직접 .md파일을 수정할 수도 있지만 preview가 안되므로 markdown에 익숙하지 않은 사람은 불편 할 수있다.)
+#### Code
+~~~
+# H1 header
+
+## H2 header
+
+### H3 header
+
+#### H4 header
+
+##### H5 header
+
+###### H6 header
+~~~
+
+#### View
+
+<div class="view">
+# H1 header
+
+## H2 header
+
+### H3 header
+
+#### H4 header
+
+##### H5 header
+
+###### H6 header
+</div>
+* * *
+
+
+
+### 강조 (Emphasis)
+
+#### 설명
+
+이텔릭, 진하게 등의 강조구문
+
+
+#### Code
+
+~~~~~~~~~~
+이것은 *이텔릭*, **진하게**  
+이것도 _이텔릭_, __진하게__
+~~~~~~~~~~
+
+#### View
+
+<div class="view">
+이것은 *이텔릭*, **진하게**  
+이것도 _이텔릭_, __진하게__
+</div>
+* * *
+
+
+### 링크 (Link)
+
+#### 설명
+
+`<a>` 링크를 건다.
+`[` 안에 화면에 보여질 링크명을 `(`안에 링크 주소를 넣어 사용한다.  
+링크 주소뒤에 한칸띄고 title 속성도 줄 수 있다.
+
+
+
+#### Code
+
+~~~~~~~~~~
+A [링크](http://kramdown.gettalong.org)
+
+A [링크](http://kramdown.gettalong.org "hp")
+
+A [링크][kramdown hp]
+to the homepage.
+
+[kramdown hp]: http://kramdown.gettalong.org "hp"
+
+
+A link to the [kramdown hp].
+
+[kramdown hp]: http://kramdown.gettalong.org "hp"
+~~~~~~~~~~
+
+#### View
+
+<div class="view">
+A [링크](http://kramdown.gettalong.org)
+
+A [링크](http://kramdown.gettalong.org "hp")
+
+A [링크][kramdown hp]
+to the homepage.
+
+[kramdown hp]: http://kramdown.gettalong.org "hp"
+
+
+A link to the [kramdown hp].
+
+[kramdown hp]: http://kramdown.gettalong.org "hp"
+</div>
+* * *
+
+
+### 이미지(image)
+
+#### 설명
+
+이미지를 첨부함  
+(github 저장소의 이미지 소스 주소를 연결함)
+
+
+#### Code
+
+~~~~~~~~~~
+이미지 : ![test](http://gjchoi.github.io/img/favicon.png)
+~~~~~~~~~~
+
+#### View
+
+<div class="view">
+이미지 : ![test](http://gjchoi.github.io/img/favicon.png)
+</div>
+* * *
+
+### 각주 (Footnotes)
+
+#### 설명
+
+문장내에서 특정 문자를 escape 시킴  
+`` ` ``를 사용하고 싶다면 `` `code` ``를 2개 붙여 감싸줌
+
+#### Code
+
+~~~~~~~~~~
+각주1 선언부분 a footnote[^1].  
+각주2 선언부분 a footnote[^2].
+
+[^1]: 각주에 대한 설명 내용 부분 (문서 최하단)
+~~~~~~~~~~
+
+#### View
+
+<div class="view">
+각주1 선언부분 a footnote[^1].  
+각주2 선언부분 a footnote[^2].
+
+
+[^1]: 각주1에 대한 설명 내용 부분 (문서 최하단)
+[^2]: 각주2에 대한 설명 내용 부분 (문서 최하단)
+</div>
+* * *
+
+
+### 인라인 코드(Inline Code)
+
+#### 설명
+
+문장내에서 특정 문자를 escape 시킴  
+`` ` ``를 사용하고 싶다면 `` `code` ``를 2개 붙여 감싸줌
+
+#### Code
+
+~~~~~~~~~~
+문장내의 `###` 사용을 무시함
+
+문장내의 `` `code` `` 사용을 무시함
+~~~~~~~~~~
+
+#### View
+
+<div class="view">
+문장내의 `###` 사용을 무시함
+
+문장내의 `` `code` `` 사용을 무시함
+</div>
+* * *
+
+
+### 문단 문법 (Paragraphs)
+
+#### 설명
+
+문단 Paragraphs <p>속성을 주어 구분한다.  
+1. 개행을 하더라도 한줄로 같은 <p>에 묶임  
+2. 띄어쓰기 2번^[space]^[space] 하던가 `\\` 백슬레시 2개를 붙이면
+같은 <p>에 묶이지만 개행이되어 보인다.  
+3. 한줄 더 개행하면 서로 다른 <p>에 묶임
+
+
+#### Code
+
+~~~
+같은 라인 문단 1,
+같은 라인 문단 2
+
+같은 문단 다른라인 1  ^[space]^[space]  
+같은 문단 다른라인 2\\
+같은 문단 다른라인 3
+~~~
+
+#### View
+
+<div class="view">
+같은 라인 문단 1,
+같은 라인 문단 2
+
+같은 문단 다른라인 1  
+같은 문단 다른라인 2\\
+같은 문단 다른라인 3
+
+앞문단
+
+뒷문단
+</div>
+
+
+### 블락 인용구 (Blockquotes)
+
+#### 설명
+
+`<blockquote>` 속성을 주어 인용구 부분의 디자인을 적용한다.
+`>` 가 연속적으로 붙은 행들끼리는 같은 `<blockquote>`로 묶이며, `> >` 연속으로 주어서 sub `<blockquote>`를 줄수도있다.
+
+
+#### Code
+
+~~~
+> blockquote 첫줄
+>
+> > 서브 blockquote 첫줄
+> > 서브 blockquote 둘째줄
+>
+> ## blockquote내의 헤더
+> 헤더뒤 기본글
+~~~
+
+#### View
+
+<div class="view">
+> blockquote 첫줄
+>
+> > 서브 blockquote 첫줄
+> > 서브 blockquote 둘째줄
+>
+> ## blockquote내의 헤더
+> 헤더뒤 기본글
+</div>
+* * *
+
+
+### 코드 블럭 (Code Blocks)
+
+#### 설명
+`<pre><code>내용물</code></pre>`로 감싸서
+`kromdown`에 사용되는 문자를 escape하여 보여 줄 수 있도록 함
+
+2가지 종류의 코드 블럭을 제공함.  
+1. 띄어쓰기 4개나 탭을 이용한 코드블럭  
+2. `~~~~~~`로 감싸준 블럭
+
+#### Code
+
+##### 1. 띄어쓰기 방식
+~~~~~~~~~~
+    블럭내에 첫째줄
+    블럭내의 둘째줄
+
+    블럭내의 넷째줄
+    #문자escape
+    ~~~~
+~~~~~~~~~~
+
+##### 2. `~~~~~~~~` 감싸주기 방식
+
+~~~~~~~~~~
+~~~~~~~
+블럭내에 첫째줄
+블럭내의 둘째줄
+
+블럭내의 넷째줄
+#문자escape
+~~~~
+~~~~~~~
+~~~~~~~~~~
+
+#### View
+
+<div class="view">
+##### 1. 띄어쓰기 방식
+
+    블럭내에 첫째줄
+    블럭내의 둘째줄
+
+    블럭내의 넷째줄
+    #문자escape
+    ~~~~
+
+##### 2. `~~~~~~~~` 감싸주기 방식
+
+~~~~~~~
+블럭내에 첫째줄
+블럭내의 둘째줄
+
+블럭내의 넷째줄
+#문자escape
+~~~~
+~~~~~~~
+</div>
+* * *
+
+
+
+### 프로그램 코드 블럭 (language Code Blocks)
+
+#### 설명
+기본적으로 code block과 같지만 프로그램 언어에 특성에 따른 색, line번호 등을 붙여주기 위한 특징을 가지고 있다.
+
+`~~~~`에 언어명을 기입하여 사용한다.
+
+#### Code
+
+~~~~~~~~~~
+~~~ ruby
+def what?
+ 42
+end
+~~~
+
+~~~ java
+public static void main(String[] args){
+}
+~~~
+~~~~~~~~~~
+
+#### View
+
+<div class="view">
+~~~ ruby
+def what?
+ 42
+end
+~~~
+
+~~~ java
+public static void main(String[] args){
+}
+~~~
+</div>
+* * *
+
+
+
+### 가로선 (Horizontal Rules)
+
+#### 설명
+`<hr/>` 선을 붙여줌
+아래 코드에 4가지 방식으로 사용가능
+
+#### Code
+
+~~~~~~~~~~
+* * *
+
+---
+
+  _  _  _  _
+
+---------------
+~~~~~~~~~~
+
+#### View
+
+<div class="view">
+* * *
+
+---
+
+  _  _  _  _
+
+---------------
+</div>
+* * *
+
+### Ordered 리스트 (List)
+
+#### 설명
+
+`<ol>`,`<li>`로 감싸주는 1,2,3 순번있는 리스트를 지원함  
+순번별로 개행에 주의해야 순번이 꼬이지 않는다.
+
+
+#### Code
+
+~~~~~~~~~~
+순서 리스트1
+
+1. 리스트 Item 1
+2. 리스트 Item 2
+2. 2번째인듯한 리스트 Item 3
+   ,다음줄인 듯한 3번째 뒷부분
+~~~~~~~~~~
+
+
+~~~~~~~~~~
+순서 리스트2
+
+1.  리스트 Item 1
+
+    > blockquote와 함께
+
+    # 헤더와 함께
+
+2.  리스트 Item 2
+~~~~~~~~~~
+
+
+~~~~~~~~~~
+순서 리스트3
+
+1. 리스트 Item 1
+   1. 서브 리스트 Item 1
+   2. 서브 리스트 Item 2
+   3. 서브 리스트 Item 3
+2. 리스트 Item 2
+~~~~~~~~~~
+
+#### View
+
+<div class="view">
+순서 리스트1
+
+1. 리스트 Item 1
+2. 리스트 Item 2
+2. 리스트 Item 3
+   ,Item 3 뒷부분
+
+순서 리스트2
+
+1.  리스트 Item 1
+
+    > blockquote
+
+    # 헤더
+
+2.  리스트 Item 2
+
+순서 리스트3
+
+1. 리스트 Item 1
+   1. 서브 리스트 Item 1
+   2. 서브 리스트 Item 2
+   3. 서브 리스트 Item 3
+2. 리스트 Item 2
+</div>
+* * *
+
+
+### Unordered 리스트 (List)
+
+#### 설명
+
+`<ul>`,`<li>`로 감싸주는 순번없는 리스트를 지원함  
+
+
+#### Code
+
+~~~~~~~~~~
+순서없는 리스트1
+
+* Item1
+,Item1의 뒷부분
+~~~~~~~~~~
+
+
+~~~~~~~~~~
+순서없는 리스트2
+
+* Item 1
++ Item 2
+- Item 3
+~~~~~~~~~~
+
+
+#### View
+
+<div class="view">
+순서없는 리스트1
+
+* Item1
+,Item1의 뒷부분
+
+순서없는 리스트2
+
+* Item 1
++ Item 2
+- Item 3
+</div>
+* * *
+
+### 정의 리스트 (Definition List)
+
+#### 설명
+
+`<dl>`,`<dt>`,`<dd>`로 감싸주는 순번없는 리스트를 지원함  
+주로 용어에 대한 정의를 설명할때 사용함
+
+
+#### Code
+
+~~~~~~~~~~
+용어1
+: 정의1
+: 정의2
+
+용어2
+용어3(2번 같은 뜻)
+: 용어2,3번의 정의
+
+용어4
+
+: 정의 문단 1
+: 정의 문단 2
+~~~~~~~~~~
+
+#### View
+
+<div class="view">
+용어1
+: 정의1
+: 정의2
+
+용어2
+용어3(2번 같은 뜻)
+: 용어2,3번의 정의
+
+용어4
+
+: 문단으로 나눈 정의 뜻 1
+: 문단으로 나눈 정의 뜻 2
+</div>
+* * *
+
+
+### 테이블 (Table)
+#### 설명
+
+`<table>`, `<thead>`, `<tbody>`, `<tfoot>`, `<tr>`, `<td>`의 table형식으로 만들어 줌  
+
+* `|` 파이프 라인으로 컬럼을 구분
+* `:-------`로 헤더와 body를 구분해줌.
+* `----` 테이블 body간을 구분
+* `====`로 테이블 foot을 구분
+
+ 
+#### Code
+
+~~~~~~~~~~
+| 헤더1 | 헤더2 | 헤더3 |
+|:--------|:-------:|--------:|
+| 컬럼1   | 컬럼2   | 컬럼3   |
+| 컬럼4   | 컬럼5   | 컬럼6   |
+|----
+| 컬럼1   | 컬럼2   | 컬럼3   |
+| 컬럼4   | 컬럼5   | 컬럼6   |
+|=====
+| Foot1   | Foot2   | Foot3
+{: rules="groups"}
+~~~~~~~~~~
+
+#### View
+
+<div class="view">
+| 헤더1 | 헤더2 | 헤더3 |
+|:--------|:-------:|--------:|
+| 컬럼1   | 컬럼2   | 컬럼3   |
+| 컬럼4   | 컬럼5   | 컬럼6   |
+|----
+| 컬럼1   | 컬럼2   | 컬럼3   |
+| 컬럼4   | 컬럼5   | 컬럼6   |
+|=====
+| Foot1   | Foot2   | Foot3
+{: rules="groups"}
+</div>
+* * *
+
+
+
+
+
 
 
