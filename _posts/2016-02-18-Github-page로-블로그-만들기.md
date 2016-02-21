@@ -1,3 +1,9 @@
+---
+layout: page
+title: Github page로 블로그 호스팅
+---
+
+
 Github page로 블로그 호스팅
 ===============
 
