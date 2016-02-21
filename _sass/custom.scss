@@ -25,5 +25,11 @@
     line-height: 50px;
 }
 
+div .view{
+    padding: 1em;
+    margin: 1em;
+    border: 3px solid #eee;
+}
+
 @import "highlights";
 @import "svg-icons";
