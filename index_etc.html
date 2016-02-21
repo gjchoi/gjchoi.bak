@@ -1,9 +1,10 @@
 ---
-layout: default
+layout : default
+title : asdf
 ---
 <!-- Posts -->
 <ul id="posts">
-     <p>{{ page.category }}</p>
+     <p>{{ page.title }}</p>
 
      {% for post in paginator.posts %}
           <p>{{post.category == "env"}}</p>
