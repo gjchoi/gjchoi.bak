@@ -2,6 +2,7 @@
 layout: default
 ---
 <article id="post-page">
+	<p>{{ page.category }}</p>
 	<h3 align="right" class="page_title">{{ page.title }}</h3>		
 	<time align="right" datetime="{{ page.date | date_to_xmlschema }}" class="by-line">{{ page.date | date_to_string }}</time>
 	<div class="content">
