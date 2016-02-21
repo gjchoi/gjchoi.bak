@@ -7,7 +7,7 @@ title : 기타 Category
      <h3>{{ page.title }}</h3>
 
      {% for post in site.posts %}
-        {% if post.category == "env" %}
+        {% if post.category == "etc" %}
 	  <li class="post">
 	  	<h3><a href="{% if site.baseurl == "/" %}{{ post.url }}{% else %}{{ post.url | prepend: site.baseurl }}{% endif %}">{{ post.title }}</a></h3>
 	  	<time datetime="{{ post.date | date_to_xmlschema }}" class="by-line">{{ post.date | date_to_string }}</time>
