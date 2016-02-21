@@ -8,7 +8,7 @@ title: About IT 노트
 <!-- Posts -->
 <ul id="posts">
 
-	{% for post in paginator.posts %}
+     {% for post in paginator.posts %}
           <p>{{post.category == "env"}}</p>
 	  <li class="post">
 	  	<h3><a href="{% if site.baseurl == "/" %}{{ post.url }}{% else %}{{ post.url | prepend: site.baseurl }}{% endif %}">{{ post.title }}</a></h3>
