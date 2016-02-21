@@ -1,5 +1,29 @@
 /*- Custom style -*/
 // -- Put custom style under this point -- //
 
+.content h1{
+    margin-bottom: 16px;
+    border-bottom: 3px solid #eee;
+}
+
+.content h2{
+    padding-bottom: 0.2em;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.content h4,h5,h6{
+    color : #669;
+}
+
+.content p{
+    padding-bottom: 0.5em;
+    line-height: 23px;
+}
+
+.content br {
+    line-height: 50px;
+}
+
 @import "highlights";
 @import "svg-icons";
